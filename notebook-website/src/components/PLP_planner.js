@@ -14,44 +14,41 @@
   }
   ```
 */
+import Header2 from "../components/header2";
 const products = [
   {
     id: 1,
-    name: "Earthen Bottle",
+    name: "Planner1",
     href: "#",
     price: "$48",
-    imageSrc:
-      "https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-01.jpg",
+    imageSrc: "/images/opensource/planner1.jpeg",
     imageAlt:
       "Tall slender porcelain bottle with natural clay textured body and cork stopper.",
   },
   {
     id: 2,
-    name: "Nomad Tumbler",
+    name: "Planner2",
     href: "#",
     price: "$35",
-    imageSrc:
-      "https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-02.jpg",
+    imageSrc: "/images/opensource/planner2.jpeg",
     imageAlt:
       "Olive drab green insulated bottle with flared screw lid and flat top.",
   },
   {
     id: 3,
-    name: "Focus Paper Refill",
+    name: "Planner3",
     href: "#",
     price: "$89",
-    imageSrc:
-      "https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-03.jpg",
+    imageSrc: "/images/opensource/planner3.jpeg",
     imageAlt:
       "Person using a pen to cross a task off a productivity paper card.",
   },
   {
     id: 4,
-    name: "Machined Mechanical Pencil",
+    name: "Planner4",
     href: "#",
     price: "$35",
-    imageSrc:
-      "https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-04.jpg",
+    imageSrc: "/images/opensource/planner4.jpeg",
     imageAlt:
       "Hand holding black machined steel mechanical pencil with brass tip and top.",
   },
@@ -61,6 +58,7 @@ const products = [
 export default function Example() {
   return (
     <div className="bg-white">
+      <Header2 />
       <div className="max-w-2xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
         <h2 className="sr-only">Products</h2>
 
