@@ -21,6 +21,7 @@ import { useSelector, useDispatch } from "react-redux";
 
 export default function Example() {
   const products = useSelector((state) => state.products);
+  const dispatch = useDispatch();
   return (
     <div className="bg-white">
       <Header2 />
@@ -31,7 +32,7 @@ export default function Example() {
           {products
             .filter((product) => product.category === "Notebook")
             .map((product) => (
-              <a key={product.id} href={product.href} className="group">
+              <div key={product.id} href={product.href} className="group">
                 <div className="w-full aspect-w-1 aspect-h-1 bg-gray-200 rounded-lg overflow-hidden xl:aspect-w-7 xl:aspect-h-8">
                   <img
                     src={product.imageSrc}
@@ -43,7 +44,15 @@ export default function Example() {
                 <p className="mt-1 text-lg font-medium text-gray-900">
                   {product.price}
                 </p>
-              </a>
+                <button
+                  onClick={() =>
+                    dispatch({ type: "ADD_TO_CART", payload: product })
+                  }
+                  className="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow"
+                >
+                  Add to Cart
+                </button>
+              </div>
             ))}
         </div>
       </div>
