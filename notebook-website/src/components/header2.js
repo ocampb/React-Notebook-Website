@@ -20,7 +20,6 @@ import { Dialog, Popover, Tab, Transition } from "@headlessui/react";
 import Cart from "./cart";
 import {
   Bars3Icon,
-  MagnifyingGlassIcon,
   ShoppingBagIcon,
   XMarkIcon,
 } from "@heroicons/react/24/outline";
@@ -52,39 +51,12 @@ const navigation = {
         {
           id: "clothing",
           name: "Clothing",
-          items: [
-            { name: "Dresses", href: "#" },
-            { name: "Pants", href: "#" },
-            { name: "Denim", href: "#" },
-            { name: "Sweaters", href: "#" },
-            { name: "T-Shirts", href: "#" },
-            { name: "Jackets", href: "#" },
-            { name: "Activewear", href: "#" },
-            { name: "Browse All", href: "#" },
-          ],
-        },
-        {
-          id: "accessories",
-          name: "Accessories",
-          items: [
-            { name: "Watches", href: "#" },
-            { name: "Wallets", href: "#" },
-            { name: "Bags", href: "#" },
-            { name: "Sunglasses", href: "#" },
-            { name: "Hats", href: "#" },
-            { name: "Belts", href: "#" },
-          ],
+          items: [{ name: "Dresses", href: "#" }],
         },
         {
           id: "brands",
           name: "Brands",
-          items: [
-            { name: "Full Nelson", href: "#" },
-            { name: "My Way", href: "#" },
-            { name: "Re-Arranged", href: "#" },
-            { name: "Counterfeit", href: "#" },
-            { name: "Significant Other", href: "#" },
-          ],
+          items: [{ name: "Full Nelson", href: "#" }],
         },
       ],
     },
@@ -92,14 +64,6 @@ const navigation = {
       id: "men",
       name: "Men",
       featured: [
-        {
-          name: "New Arrivals",
-          href: "#",
-          imageSrc:
-            "https://tailwindui.com/img/ecommerce-images/product-page-04-detail-product-shot-01.jpg",
-          imageAlt:
-            "Drawstring top with elastic loop closure and textured interior padding.",
-        },
         {
           name: "Artwork Tees",
           href: "#",
@@ -113,37 +77,7 @@ const navigation = {
         {
           id: "clothing",
           name: "Clothing",
-          items: [
-            { name: "Tops", href: "#" },
-            { name: "Pants", href: "#" },
-            { name: "Sweaters", href: "#" },
-            { name: "T-Shirts", href: "#" },
-            { name: "Jackets", href: "#" },
-            { name: "Activewear", href: "#" },
-            { name: "Browse All", href: "#" },
-          ],
-        },
-        {
-          id: "accessories",
-          name: "Accessories",
-          items: [
-            { name: "Watches", href: "#" },
-            { name: "Wallets", href: "#" },
-            { name: "Bags", href: "#" },
-            { name: "Sunglasses", href: "#" },
-            { name: "Hats", href: "#" },
-            { name: "Belts", href: "#" },
-          ],
-        },
-        {
-          id: "brands",
-          name: "Brands",
-          items: [
-            { name: "Re-Arranged", href: "#" },
-            { name: "Counterfeit", href: "#" },
-            { name: "Full Nelson", href: "#" },
-            { name: "My Way", href: "#" },
-          ],
+          items: [{ name: "Tops", href: "#" }],
         },
       ],
     },
@@ -151,6 +85,7 @@ const navigation = {
   pages: [
     { name: "Notebooks", href: "/products/notebooks" },
     { name: "Planners", href: "/products/planners" },
+    { name: "Pens", href: "/products/pens" },
   ],
 };
 
@@ -340,10 +275,6 @@ export default function Example() {
       </Transition.Root>
 
       <header className="relative bg-white">
-        <p className="bg-indigo-600 h-10 flex items-center justify-center text-sm font-medium text-white px-4 sm:px-6 lg:px-8">
-          Get free delivery on orders over $100
-        </p>
-
         <nav
           aria-label="Top"
           className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
@@ -361,14 +292,13 @@ export default function Example() {
 
               {/* Logo */}
               <div className="ml-4 flex lg:ml-0">
-                <a href="#">
-                  <span className="sr-only">Workflow</span>
+                <Link to="/">
                   <img
                     className="h-8 w-auto"
                     src="https://tailwindui.com/img/logos/workflow-mark.svg?color=indigo&shade=600"
                     alt=""
                   />
-                </a>
+                </Link>
               </div>
 
               {/* Flyout menus */}
@@ -388,19 +318,7 @@ export default function Example() {
 
               <div className="ml-auto flex items-center">
                 <div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
-                  <a
-                    href="#"
-                    className="text-sm font-medium text-gray-700 hover:text-gray-800"
-                  >
-                    Sign in
-                  </a>
                   <span className="h-6 w-px bg-gray-200" aria-hidden="true" />
-                  <a
-                    href="#"
-                    className="text-sm font-medium text-gray-700 hover:text-gray-800"
-                  >
-                    Create account
-                  </a>
                 </div>
 
                 <div className="hidden lg:ml-8 lg:flex">
@@ -409,23 +327,12 @@ export default function Example() {
                     className="text-gray-700 hover:text-gray-800 flex items-center"
                   >
                     <img
-                      src="https://tailwindui.com/img/flags/flag-canada.svg"
+                      src="https://tailwindui.com/img/flags/flag-united-states.svg"
                       alt=""
                       className="w-5 h-auto block flex-shrink-0"
                     />
-                    <span className="ml-3 block text-sm font-medium">CAD</span>
+                    <span className="ml-3 block text-sm font-medium">USD</span>
                     <span className="sr-only">, change currency</span>
-                  </a>
-                </div>
-
-                {/* Search */}
-                <div className="flex lg:ml-6">
-                  <a href="#" className="p-2 text-gray-400 hover:text-gray-500">
-                    <span className="sr-only">Search</span>
-                    <MagnifyingGlassIcon
-                      className="w-6 h-6"
-                      aria-hidden="true"
-                    />
                   </a>
                 </div>
 

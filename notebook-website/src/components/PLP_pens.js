@@ -20,37 +20,37 @@ import Header2 from "../components/header2";
 const products = [
   {
     id: 1,
-    name: "Notebook1",
+    name: "Pen1",
     href: "#",
     price: "$48",
-    imageSrc: "/images/opensource/notebook1.jpeg",
+    imageSrc: "/images/opensource/pen6.jpeg",
     imageAlt:
       "Tall slender porcelain bottle with natural clay textured body and cork stopper.",
   },
   {
     id: 2,
-    name: "Nomad Tumbler",
+    name: "Pen2",
     href: "#",
     price: "$35",
-    imageSrc: "/images/opensource/notebook3.jpeg",
+    imageSrc: "/images/opensource/pen2.jpeg",
     imageAlt:
       "Olive drab green insulated bottle with flared screw lid and flat top.",
   },
   {
     id: 3,
-    name: "Focus Paper Refill",
+    name: "Pen3",
     href: "#",
     price: "$89",
-    imageSrc: "/images/opensource/notebook2.JPG",
+    imageSrc: "/images/opensource/pen3.jpeg",
     imageAlt:
       "Person using a pen to cross a task off a productivity paper card.",
   },
   {
     id: 4,
-    name: "Machined Mechanical Pencil",
+    name: "Pen4",
     href: "#",
     price: "$35",
-    imageSrc: "/images/opensource/notebook6.jpeg",
+    imageSrc: "/images/opensource/pen5.jpeg",
     imageAlt:
       "Hand holding black machined steel mechanical pencil with brass tip and top.",
   },
