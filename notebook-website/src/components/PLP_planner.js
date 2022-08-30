@@ -15,47 +15,11 @@
   ```
 */
 import Header2 from "../components/header2";
-const products = [
-  {
-    id: 1,
-    name: "Planner1",
-    href: "#",
-    price: "$48",
-    imageSrc: "/images/opensource/planner1.jpeg",
-    imageAlt:
-      "Tall slender porcelain bottle with natural clay textured body and cork stopper.",
-  },
-  {
-    id: 2,
-    name: "Planner2",
-    href: "#",
-    price: "$35",
-    imageSrc: "/images/opensource/planner2.jpeg",
-    imageAlt:
-      "Olive drab green insulated bottle with flared screw lid and flat top.",
-  },
-  {
-    id: 3,
-    name: "Planner3",
-    href: "#",
-    price: "$89",
-    imageSrc: "/images/opensource/planner3.jpeg",
-    imageAlt:
-      "Person using a pen to cross a task off a productivity paper card.",
-  },
-  {
-    id: 4,
-    name: "Planner4",
-    href: "#",
-    price: "$35",
-    imageSrc: "/images/opensource/planner4.jpeg",
-    imageAlt:
-      "Hand holding black machined steel mechanical pencil with brass tip and top.",
-  },
-  // More products...
-];
+import React from "react";
+import { useSelector, useDispatch } from "react-redux";
 
 export default function Example() {
+  const products = useSelector((state) => state.products);
   return (
     <div className="bg-white">
       <Header2 />
