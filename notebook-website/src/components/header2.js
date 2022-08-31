@@ -25,63 +25,7 @@ import {
 } from "@heroicons/react/24/outline";
 
 const navigation = {
-  categories: [
-    {
-      id: "women",
-      name: "Women",
-      featured: [
-        {
-          name: "New Arrivals",
-          href: "#",
-          imageSrc:
-            "https://tailwindui.com/img/ecommerce-images/mega-menu-category-01.jpg",
-          imageAlt:
-            "Models sitting back to back, wearing Basic Tee in black and bone.",
-        },
-        {
-          name: "Basic Tees",
-          href: "#",
-          imageSrc:
-            "https://tailwindui.com/img/ecommerce-images/mega-menu-category-02.jpg",
-          imageAlt:
-            "Close up of Basic Tee fall bundle with off-white, ochre, olive, and black tees.",
-        },
-      ],
-      sections: [
-        {
-          id: "clothing",
-          name: "Clothing",
-          items: [{ name: "Dresses", href: "#" }],
-        },
-        {
-          id: "brands",
-          name: "Brands",
-          items: [{ name: "Full Nelson", href: "#" }],
-        },
-      ],
-    },
-    {
-      id: "men",
-      name: "Men",
-      featured: [
-        {
-          name: "Artwork Tees",
-          href: "#",
-          imageSrc:
-            "https://tailwindui.com/img/ecommerce-images/category-page-02-image-card-06.jpg",
-          imageAlt:
-            "Three shirts in gray, white, and blue arranged on table with same line drawing of hands and shapes overlapping on front of shirt.",
-        },
-      ],
-      sections: [
-        {
-          id: "clothing",
-          name: "Clothing",
-          items: [{ name: "Tops", href: "#" }],
-        },
-      ],
-    },
-  ],
+  categories: [],
   pages: [
     { name: "Notebooks", href: "/products/notebooks" },
     { name: "Planners", href: "/products/planners" },
@@ -114,7 +58,7 @@ export default function Example() {
             <div className="fixed inset-0 bg-black bg-opacity-25" />
           </Transition.Child>
 
-          <div className="fixed inset-0 flex z-40">
+          <div className="fixed inset-0 z-40 flex">
             <Transition.Child
               as={Fragment}
               enter="transition ease-in-out duration-300 transform"
@@ -124,11 +68,11 @@ export default function Example() {
               leaveFrom="translate-x-0"
               leaveTo="-translate-x-full"
             >
-              <Dialog.Panel className="relative max-w-xs w-full bg-white shadow-xl pb-12 flex flex-col overflow-y-auto">
-                <div className="px-4 pt-5 pb-2 flex">
+              <Dialog.Panel className="relative flex w-full max-w-xs flex-col overflow-y-auto bg-white pb-12 shadow-xl">
+                <div className="flex px-4 pt-5 pb-2">
                   <button
                     type="button"
-                    className="-m-2 p-2 rounded-md inline-flex items-center justify-center text-gray-400"
+                    className="-m-2 inline-flex items-center justify-center rounded-md p-2 text-gray-400"
                     onClick={() => setOpen(false)}
                   >
                     <span className="sr-only">Close menu</span>
@@ -139,7 +83,7 @@ export default function Example() {
                 {/* Links */}
                 <Tab.Group as="div" className="mt-2">
                   <div className="border-b border-gray-200">
-                    <Tab.List className="-mb-px flex px-4 space-x-8">
+                    <Tab.List className="-mb-px flex space-x-8 px-4">
                       {navigation.categories.map((category) => (
                         <Tab
                           key={category.name}
@@ -148,7 +92,7 @@ export default function Example() {
                               selected
                                 ? "text-indigo-600 border-indigo-600"
                                 : "text-gray-900 border-transparent",
-                              "flex-1 whitespace-nowrap py-4 px-1 border-b-2 text-base font-medium"
+                              "flex-1 whitespace-nowrap border-b-2 py-4 px-1 text-base font-medium"
                             )
                           }
                         >
@@ -161,7 +105,7 @@ export default function Example() {
                     {navigation.categories.map((category) => (
                       <Tab.Panel
                         key={category.name}
-                        className="pt-10 pb-8 px-4 space-y-10"
+                        className="space-y-10 px-4 pt-10 pb-8"
                       >
                         <div className="grid grid-cols-2 gap-x-4">
                           {category.featured.map((item) => (
@@ -169,11 +113,11 @@ export default function Example() {
                               key={item.name}
                               className="group relative text-sm"
                             >
-                              <div className="aspect-w-1 aspect-h-1 rounded-lg bg-gray-100 overflow-hidden group-hover:opacity-75">
+                              <div className="aspect-w-1 aspect-h-1 overflow-hidden rounded-lg bg-gray-100 group-hover:opacity-75">
                                 <img
                                   src={item.imageSrc}
                                   alt={item.imageAlt}
-                                  className="object-center object-cover"
+                                  className="object-cover object-center"
                                 />
                               </div>
                               <a
@@ -181,7 +125,7 @@ export default function Example() {
                                 className="mt-6 block font-medium text-gray-900"
                               >
                                 <span
-                                  className="absolute z-10 inset-0"
+                                  className="absolute inset-0 z-10"
                                   aria-hidden="true"
                                 />
                                 {item.name}
@@ -209,7 +153,7 @@ export default function Example() {
                                 <li key={item.name} className="flow-root">
                                   <a
                                     href={item.href}
-                                    className="-m-2 p-2 block text-gray-500"
+                                    className="-m-2 block p-2 text-gray-500"
                                   >
                                     {item.name}
                                   </a>
@@ -223,47 +167,33 @@ export default function Example() {
                   </Tab.Panels>
                 </Tab.Group>
 
-                <div className="border-t border-gray-200 py-6 px-4 space-y-6">
+                <div className="space-y-6 border-t border-gray-200 py-6 px-4">
                   {navigation.pages.map((page) => (
                     <div key={page.name} className="flow-root">
-                      <Link
+                      <a
                         href={page.href}
-                        className="-m-2 p-2 block font-medium text-gray-900"
+                        className="-m-2 block p-2 font-medium text-gray-900"
                       >
                         {page.name}
-                      </Link>
+                      </a>
                     </div>
                   ))}
                 </div>
 
-                <div className="border-t border-gray-200 py-6 px-4 space-y-6">
-                  <div className="flow-root">
-                    <a
-                      href="#"
-                      className="-m-2 p-2 block font-medium text-gray-900"
-                    >
-                      Sign in
-                    </a>
-                  </div>
-                  <div className="flow-root">
-                    <a
-                      href="#"
-                      className="-m-2 p-2 block font-medium text-gray-900"
-                    >
-                      Create account
-                    </a>
-                  </div>
+                <div className="space-y-6 border-t border-gray-200 py-6 px-4">
+                  <div className="flow-root"></div>
+                  <div className="flow-root"></div>
                 </div>
 
                 <div className="border-t border-gray-200 py-6 px-4">
-                  <a href="#" className="-m-2 p-2 flex items-center">
+                  <a href="#" className="-m-2 flex items-center p-2">
                     <img
-                      src="https://tailwindui.com/img/flags/flag-canada.svg"
+                      src="https://tailwindui.com/img/flags/flag-united-states.svg"
                       alt=""
-                      className="w-5 h-auto block flex-shrink-0"
+                      className="block h-auto w-5 flex-shrink-0"
                     />
                     <span className="ml-3 block text-base font-medium text-gray-900">
-                      CAD
+                      USD
                     </span>
                     <span className="sr-only">, change currency</span>
                   </a>
