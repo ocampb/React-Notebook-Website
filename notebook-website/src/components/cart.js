@@ -6,6 +6,11 @@ import { useSelector, useDispatch } from "react-redux";
 
 export default function Cart({ open, setOpen }) {
   const products = useSelector((state) => state.cart);
+  const dispatch = useDispatch();
+  let newTotal = 0;
+  products.forEach((product) => {
+    newTotal = newTotal + parseInt(product.price.slice(1), 10);
+  });
   return (
     <Transition.Root show={open} as={Fragment}>
       <Dialog as="div" className="relative z-10" onClose={setOpen}>
@@ -93,6 +98,12 @@ export default function Cart({ open, setOpen }) {
                                       <button
                                         type="button"
                                         className="font-medium text-indigo-600 hover:text-indigo-500"
+                                        onClick={() =>
+                                          dispatch({
+                                            type: "REMOVE_FROM_CART",
+                                            payload: product,
+                                          })
+                                        }
                                       >
                                         Remove
                                       </button>
@@ -109,7 +120,7 @@ export default function Cart({ open, setOpen }) {
                     <div className="border-t border-gray-200 py-6 px-4 sm:px-6">
                       <div className="flex justify-between text-base font-medium text-gray-900">
                         <p>Subtotal</p>
-                        <p>$00.00</p>
+                        <p>${newTotal}</p>
                       </div>
                       <p className="mt-0.5 text-sm text-gray-500">
                         Shipping and taxes calculated at checkout.

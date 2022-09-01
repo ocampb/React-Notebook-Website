@@ -5,6 +5,7 @@ const initialProducts = [
     category: "Notebook",
     href: "#",
     price: "$25",
+    priceint: 25,
     imageSrc: "/images/opensource/notebook1.jpeg",
     imageAlt: "Multi-colored notebook",
   },
@@ -14,6 +15,7 @@ const initialProducts = [
     category: "Notebook",
     href: "#",
     price: "$35",
+    priceint: 35,
     imageSrc: "/images/opensource/notebook3.jpeg",
     imageAlt: "Leather notebook",
   },
@@ -23,6 +25,7 @@ const initialProducts = [
     category: "Notebook",
     href: "#",
     price: "$125",
+    priceint: 125,
     imageSrc: "/images/opensource/notebook2.JPG",
     imageAlt: "Set of 4 leather bound notebooks",
   },
@@ -32,6 +35,7 @@ const initialProducts = [
     category: "Notebook",
     href: "#",
     price: "$25",
+    priceint: 25,
     imageSrc: "/images/opensource/notebook6.jpeg",
     imageAlt: "Pastel pink focus notebook",
   },
@@ -41,6 +45,7 @@ const initialProducts = [
     category: "Planner",
     href: "#",
     price: "$45",
+    priceint: 45,
     imageSrc: "/images/opensource/planner1.jpeg",
     imageAlt: "Green leather notebook style daily planner",
   },
@@ -50,6 +55,7 @@ const initialProducts = [
     category: "Planner",
     href: "#",
     price: "$100",
+    priceint: 100,
     imageSrc: "/images/opensource/planner2.jpeg",
     imageAlt: "Filofax brand three ring organizer",
   },
@@ -59,6 +65,7 @@ const initialProducts = [
     category: "Planner",
     href: "#",
     price: "$30",
+    priceint: 30,
     imageSrc: "/images/opensource/planner3.jpeg",
     imageAlt: "Orange Leather Planner",
   },
@@ -68,6 +75,7 @@ const initialProducts = [
     category: "Planner",
     href: "#",
     price: "$35",
+    priceint: 35,
     imageSrc: "/images/opensource/planner4.jpeg",
     imageAlt:
       "Hand holding black machined steel mechanical pencil with brass tip and top.",
@@ -78,6 +86,7 @@ const initialProducts = [
     category: "Pen",
     href: "#",
     price: "$48",
+    priceint: 48,
     imageSrc: "/images/opensource/pen6.jpeg",
     imageAlt:
       "Tall slender porcelain bottle with natural clay textured body and cork stopper.",
@@ -88,6 +97,7 @@ const initialProducts = [
     category: "Pen",
     href: "#",
     price: "$35",
+    priceint: 35,
     imageSrc: "/images/opensource/pen2.jpeg",
     imageAlt:
       "Olive drab green insulated bottle with flared screw lid and flat top.",
@@ -98,6 +108,7 @@ const initialProducts = [
     category: "Pen",
     href: "#",
     price: "$89",
+    priceint: 89,
     imageSrc: "/images/opensource/pen3.jpeg",
     imageAlt:
       "Person using a pen to cross a task off a productivity paper card.",
@@ -108,6 +119,7 @@ const initialProducts = [
     category: "Pen",
     href: "#",
     price: "$35",
+    priceint: 35,
     imageSrc: "/images/opensource/pen5.jpeg",
     imageAlt:
       "Hand holding black machined steel mechanical pencil with brass tip and top.",
@@ -124,6 +136,12 @@ const rootReducer = (state = initialState, action) => {
     case "ADD_TO_CART":
       const newCart = state.cart;
       return { ...state, cart: [...newCart, action?.payload] };
+    case "REMOVE_FROM_CART":
+      const newCartRemove = state.cart;
+      return {
+        ...state,
+        cart: newCartRemove.filter((item) => item !== action?.payload),
+      };
     default:
       return state;
   }
