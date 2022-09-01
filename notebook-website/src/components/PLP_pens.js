@@ -47,7 +47,7 @@ export default function Example() {
                   onClick={() =>
                     dispatch({ type: "ADD_TO_CART", payload: product })
                   }
-                  class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow"
+                  className="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow"
                 >
                   Add to Cart
                 </button>
