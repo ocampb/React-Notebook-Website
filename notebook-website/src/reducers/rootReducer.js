@@ -132,16 +132,35 @@ const initialState = {
 };
 
 const rootReducer = (state = initialState, action) => {
+  const existingItem = state.cart.find(({ id }) => action?.payload.id === id);
   switch (action?.type) {
     case "ADD_TO_CART":
       const newCart = state.cart;
-      return { ...state, cart: [...newCart, action?.payload] };
+
+      if (existingItem) {
+        existingItem.quantity += 1;
+        return { ...state, cart: [...newCart] };
+      } else {
+        return {
+          ...state,
+          cart: [...newCart, { ...action.payload, quantity: 1 }],
+        };
+      }
+
     case "REMOVE_FROM_CART":
-      const newCartRemove = state.cart;
-      return {
-        ...state,
-        cart: newCartRemove.filter((item) => item !== action?.payload),
-      };
+      if (existingItem && existingItem.quantity > 1) {
+        existingItem.quantity--;
+
+        return {
+          ...state,
+          cart: [...state.cart],
+        };
+      } else {
+        return {
+          ...state,
+          cart: state.cart.filter((item) => item.id !== action?.payload.id),
+        };
+      }
     default:
       return state;
   }
