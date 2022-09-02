@@ -16,12 +16,12 @@
 */
 const callouts = [
   {
-    name: "Planners and Pens",
-    description: "Tools to get organized",
+    name: "Get Organized",
+    description: "Planners and Pens",
     imageSrc: "/images/opensource/planner25.jpg",
     imageAlt:
       "Desk with leather desk pad, walnut desk organizer, wireless keyboard and mouse, and porcelain mug.",
-    href: "#",
+    href: "/products/collection1",
   },
   {
     name: "Self-Improvement",
@@ -29,7 +29,7 @@ const callouts = [
     imageSrc: "/images/opensource/pen4.jpeg",
     imageAlt:
       "Wood table with porcelain mug, leather journal, brass pen, leather key ring, and a houseplant.",
-    href: "#",
+    href: "/products/collection2",
   },
 ];
 
