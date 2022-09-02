@@ -132,10 +132,12 @@ const initialState = {
 };
 
 const rootReducer = (state = initialState, action) => {
-  const existingItem = state.cart.find(({ id }) => action?.payload.id === id);
   switch (action?.type) {
     case "ADD_TO_CART":
       const newCart = state.cart;
+      const existingItem = state.cart.find(
+        ({ id }) => action?.payload.id === id
+      );
 
       if (existingItem) {
         existingItem.quantity += 1;
@@ -148,8 +150,11 @@ const rootReducer = (state = initialState, action) => {
       }
 
     case "REMOVE_FROM_CART":
-      if (existingItem && existingItem.quantity > 1) {
-        existingItem.quantity--;
+      const existingItem2 = state.cart.find(
+        ({ id }) => action?.payload.id === id
+      );
+      if (existingItem2 && existingItem2.quantity > 1) {
+        existingItem2.quantity--;
 
         return {
           ...state,
@@ -161,6 +166,9 @@ const rootReducer = (state = initialState, action) => {
           cart: state.cart.filter((item) => item.id !== action?.payload.id),
         };
       }
+    case "EMPTY_CART":
+      const emptyCart = [];
+      return { ...state, cart: emptyCart };
     default:
       return state;
   }
